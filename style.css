@@ -79,8 +79,8 @@ body.spidey-warm-bg {
 .spidey-swinging-mascot {
   position: fixed;
   top: 0;
-  left: 1rem;
-  z-index: 120;
+  left: 4.2rem;
+  z-index: 95;
   cursor: pointer;
   transform-origin: top center;
   animation: swingSpidey 4.5s ease-in-out infinite;
@@ -97,32 +97,32 @@ body.spidey-warm-bg {
 }
 
 @keyframes swingSpidey {
-  0%, 100% { transform: rotate(-8deg) translateY(0); }
-  50% { transform: rotate(9deg) translateY(8px); }
+  0%, 100% { transform: rotate(-6deg) translateY(0); }
+  50% { transform: rotate(7deg) translateY(6px); }
 }
 
 @keyframes spideyFlip {
   0% { transform: rotate(0deg) scale(1); }
-  50% { transform: rotate(180deg) scale(1.25); }
+  50% { transform: rotate(180deg) scale(1.2); }
   100% { transform: rotate(360deg) scale(1); }
 }
 
 .spidey-speech-bubble {
   position: absolute;
-  top: 68px;
-  left: 70px;
+  top: 105px;
+  left: -15px;
   background: var(--color-dark-card);
   border: 1.5px solid var(--color-spidey-gold);
   color: var(--color-spidey-gold);
   font-family: var(--font-heading);
-  font-size: 0.72rem;
+  font-size: 0.65rem;
   font-weight: 800;
-  padding: 0.25rem 0.65rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 12px;
   white-space: nowrap;
   box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
   pointer-events: none;
-  transform-origin: bottom left;
+  transform-origin: top center;
   animation: bubblePop 2.5s ease-in-out infinite alternate;
 }
 
@@ -1237,28 +1237,26 @@ body.spidey-warm-bg {
   }
 
   .spidey-swinging-mascot {
-    left: 0.1rem;
-    transform: scale(0.72);
+    left: 3.2rem;
+    top: -4px;
+    transform: scale(0.62);
   }
 
   .spidey-speech-bubble {
-    top: 55px;
-    left: 48px;
-    font-size: 0.6rem;
-    padding: 0.2rem 0.5rem;
+    display: none !important;
   }
 
   /* Page Padding for Mobile Viewports */
   .page {
-    padding: calc(3.5rem + env(safe-area-inset-top)) 0.8rem calc(1.5rem + env(safe-area-inset-bottom)) 0.8rem;
-    justify-content: center;
+    padding: calc(4.8rem + env(safe-area-inset-top)) 0.8rem calc(2rem + env(safe-area-inset-bottom)) 0.8rem;
+    justify-content: flex-start;
     align-items: center;
   }
 
   .page-content {
-    margin: auto;
+    margin: 0 auto;
     max-width: 380px;
-    justify-content: center;
+    justify-content: flex-start;
   }
 
   /* Page 1 Mobile Adjustments */
@@ -1273,7 +1271,7 @@ body.spidey-warm-bg {
   }
 
   .main-heading.spidey-title {
-    font-size: 1.9rem;
+    font-size: 1.85rem;
     margin-bottom: 0.3rem;
   }
 
@@ -1310,33 +1308,33 @@ body.spidey-warm-bg {
 
   /* Floating Decorative Stickers for Small Screens */
   .spidey-sticker-mask {
-    top: 4.5rem;
-    left: 0.2rem;
-    transform: scale(0.75);
+    top: 4.8rem;
+    left: 0.1rem;
+    transform: scale(0.7);
   }
 
   .spidey-sticker-sense {
-    top: 4.5rem;
-    right: 0.2rem;
-    transform: scale(0.75);
+    top: 4.8rem;
+    right: 0.1rem;
+    transform: scale(0.7);
   }
 
   .spidey-stamp {
-    top: 4.5rem;
-    right: 0.3rem;
-    transform: scale(0.75);
+    top: 4.8rem;
+    right: 0.2rem;
+    transform: scale(0.7);
   }
 
   .spidey-pill {
-    top: 4.5rem;
-    left: 0.3rem;
-    transform: scale(0.75);
+    top: 4.8rem;
+    left: 0.2rem;
+    transform: scale(0.7);
   }
 
   .spidey-badge {
-    top: 4.5rem;
-    right: 0.3rem;
-    transform: scale(0.75);
+    top: 4.8rem;
+    right: 0.2rem;
+    transform: scale(0.7);
   }
 
   /* Page 2 Mobile Envelope Adjustments */
@@ -1344,6 +1342,12 @@ body.spidey-warm-bg {
     width: 275px;
     height: 195px;
     margin: 1.1rem auto 0.8rem auto;
+  }
+
+  .spidey-envelope-wrapper.open .spidey-letter-paper {
+    transform: translateY(-20px) scale(1);
+    max-height: 52vh;
+    overflow-y: auto;
   }
 
   .spidey-letter-paper {
