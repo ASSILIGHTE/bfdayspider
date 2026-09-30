@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Happy Boyfriend Day - For My Favorite Hero 🕷️🕸️</title>
+  <meta name="description" content="A touching interactive Spider-Man story for National Boyfriend Day.">
+
+  <!-- Favicon / Shortcut Icon -->
+  <link rel="icon" type="image/jpeg" href="public/photos/profil.jpg">
+  <link rel="apple-touch-icon" href="public/photos/profil.jpg">
+
+  <!-- Open Graph / WhatsApp / Instagram / Facebook / Telegram Link Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Happy Boyfriend Day - For My Favorite Hero 🕷️🕸️">
+  <meta property="og:description" content="Kisah interaktif spesial Spider-Man di National Boyfriend Day.">
+  <meta property="og:image" content="public/photos/profil.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Happy Boyfriend Day - For My Favorite Hero 🕷️🕸️">
+  <meta name="twitter:description" content="Kisah interaktif spesial Spider-Man di National Boyfriend Day.">
+  <meta name="twitter:image" content="public/photos/profil.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bangers&family=Bebas+Neue&family=Outfit:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Canvas Layer (Spider Webs, Web Nodes & Subtle Spidey Emblems) -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- Interactive Swinging Spider-Man Character Mascot 🕷️🕸️ -->
+  <div class="spidey-swinging-mascot" id="spidey-mascot" title="Klik Spider-Man untuk manuver web flip! 🕸️">
+    <div class="spidey-web-line"></div>
+    <div class="spidey-speech-bubble" id="spidey-bubble">
+      <span>Happy Boyfriend Day! 🕸️</span>
+    </div>
+    <svg class="spidey-character-svg" viewBox="0 0 90 140" width="90" height="140">
+      <!-- Web String -->
+      <line x1="45" y1="0" x2="45" y2="45" stroke="#ffffff" stroke-width="2" stroke-dasharray="3 2" opacity="0.9" />
+
+      <!-- Legs Hanging Upward -->
+      <g class="spidey-legs">
+        <!-- Left Leg -->
+        <path d="M 45 50 C 35 35 20 30 18 15" stroke="#0084ff" stroke-width="6" stroke-linecap="round" fill="none" />
+        <path d="M 18 15 L 28 8" stroke="#ff1e27" stroke-width="5" stroke-linecap="round" fill="none" />
+        <!-- Right Leg -->
+        <path d="M 45 50 C 55 35 70 30 72 15" stroke="#0084ff" stroke-width="6" stroke-linecap="round" fill="none" />
+        <path d="M 72 15 L 62 8" stroke="#ff1e27" stroke-width="5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Torso / Suit Body (Upside Down) -->
+      <g class="spidey-body">
+        <path d="M 32 50 L 58 50 L 52 82 L 38 82 Z" fill="#ff1e27" stroke="#000000" stroke-width="1.5" />
+        <!-- Blue Suit Flanks -->
+        <path d="M 32 50 C 26 60 28 72 38 82 Z" fill="#0084ff" />
+        <path d="M 58 50 C 64 60 62 72 52 82 Z" fill="#0084ff" />
+        <!-- Spider Chest Emblem -->
+        <ellipse cx="45" cy="64" rx="4" ry="6" fill="#000000" />
+        <path d="M 45 60 L 37 54 M 45 60 L 53 54 M 45 66 L 35 74 M 45 66 L 55 74" stroke="#000000" stroke-width="1.2" />
+      </g>
+
+      <!-- Arms Holding Web -->
+      <g class="spidey-arms">
+        <path d="M 33 52 C 20 40 25 25 43 45" stroke="#ff1e27" stroke-width="5" stroke-linecap="round" fill="none" />
+        <path d="M 57 52 C 70 40 65 25 47 45" stroke="#ff1e27" stroke-width="5" stroke-linecap="round" fill="none" />
+      </g>
+
+      <!-- Head upside down -->
+      <g class="spidey-head">
+        <!-- Mask Shape -->
+        <path d="M 28 80 C 24 98 32 118 45 125 C 58 118 66 98 62 80 C 52 74 38 74 28 80 Z" fill="#ff1e27"
+          stroke="#111111" stroke-width="2" />
+
+        <!-- Web Lines on Mask -->
+        <path d="M 45 80 L 45 122 M 28 92 L 62 92 M 30 106 L 60 106 M 34 116 L 56 116" stroke="#990000" stroke-width="1"
+          opacity="0.6" fill="none" />
+
+        <!-- Big Iconic Spidey Eyes -->
+        <!-- Left Eye -->
+        <path d="M 32 90 C 34 102 42 106 43 96 C 41 91 36 88 32 90 Z" fill="#ffffff" stroke="#000000"
+          stroke-width="2.5" />
+        <!-- Right Eye -->
+        <path d="M 58 90 C 56 102 48 106 47 96 C 49 91 54 88 58 90 Z" fill="#ffffff" stroke="#000000"
+          stroke-width="2.5" />
+      </g>
+    </svg>
+  </div>
+
+  <!-- Fullscreen Mode Toggle Widget -->
+  <button class="fullscreen-widget" id="fullscreen-toggle" title="Layar Penuh / Exit Fullscreen">
+    <span class="fs-icon">⛶</span>
+  </button>
+
+  <!-- Aesthetic Floating Spidey Audio Player -->
+  <div class="vinyl-widget spidey-audio-widget" id="music-toggle" title="Putar / Hentikan Musik Spidey">
+    <div class="vinyl-disc spidey-disc">
+      <div class="spidey-disc-spider">🕷️</div>
+    </div>
+    <div class="vinyl-info">
+      <span class="vinyl-title">Separuh Aku</span>
+      <span class="vinyl-artist">Noah 🎵</span>
+    </div>
+  </div>
+  <audio id="bg-music" loop src="public/The 1975 - About You Official.mp3" preload="auto"></audio>
+
+  <!-- Spidey Confetti & Web Burst Layer -->
+  <div id="confetti-container" class="confetti-container"></div>
+
+  <!-- Fullscreen Photo Lightbox -->
+  <div id="photo-modal" class="photo-modal hidden">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content spidey-modal-content">
+      <button id="modal-close" class="modal-close" aria-label="Tutup Foto">&times;</button>
+      <div class="modal-polaroid spidey-polaroid">
+        <div class="spidey-web-corner top-left">🕸️</div>
+        <div class="spidey-web-corner top-right">🕸️</div>
+        <img id="modal-img" src="" alt="Superhero Memory Photo">
+        <p id="modal-caption" class="modal-caption">Our Special Memory 🕷️❤️</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Container -->
+  <main class="app-wrapper">
+
+    <!-- PAGE 1: Happy Boyfriend Day... 🕷️ 👋 -->
+    <section id="page-1" class="page active">
+      <!-- Floating Decorative Stickers -->
+      <div class="cute-sticker spidey-sticker-mask" title="Spider-Man Mask 🕷️">
+        <span class="sticker-emoji">🕷️</span>
+        <span class="sticker-tag">FOR YOU!</span>
+      </div>
+
+      <div class="cute-sticker spidey-sticker-sense" title="Spider-Sense ⚡">
+        <span class="sticker-emoji">⚡</span>
+        <span class="sticker-tag">SPECIAL DAY!</span>
+      </div>
+
+      <div class="page-content">
+        <!-- Header Tag & Headings Top Section -->
+        <div class="header-text-group">
+          <span class="sub-title-tag spidey-tag">HAPPY NATIONAL BOYFRIEND DAY 🕷️</span>
+          <h1 class="main-heading spidey-title">Happy Boyfriend Day... <span class="spidey-inline-icon">🕷️</span></h1>
+          <p class="sub-heading spidey-subtext">Buat seseorang yang pernah jadi superhero paling berarti di dalam
+            hidupku.</p>
+        </div>
+
+        <!-- 3D Overlapping Comic Polaroid Stack -->
+        <div class="polaroid-stack spidey-stack">
+          <!-- Back Photo -->
+          <div class="polaroid-card stack-back photo-trigger" data-img="public/photos/dua.jpg"
+            data-caption="Sweet Memories 🕷️💕">
+            <div class="tape-sticker top-right-tape spidey-tape"></div>
+            <div class="photo-box">
+              <img src="public/photos/dua.jpg" alt="Photo Memory">
+            </div>
+          </div>
+
+          <!-- Front Main Photo -->
+          <div class="polaroid-card stack-front photo-trigger" data-img="public/photos/profil.jpg"
+            data-caption="Happy Boyfriend Day 🕷️❤️">
+            <div class="spidey-clip">🕷️</div>
+            <div class="photo-box">
+              <img src="public/photos/profil.jpg" alt="Hero Photo">
+            </div>
+            <span class="polaroid-handwriting spidey-handwriting">My Favorite Hero 🕸️</span>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <button id="btn-page1" class="btn-primary spidey-btn">
+          <span>Buka Kenangan 🕸️</span> <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 2: Bittersweet Letter Envelope 💌🕸️ -->
+    <section id="page-2" class="page">
+      <!-- Floating Decorative Stamp -->
+      <div class="cute-sticker love-stamp spidey-stamp" title="Web Stamp 🕸️">
+        <span class="sticker-emoji">🕸️</span>
+        <span class="sticker-tag">FOR YOU!</span>
+      </div>
+
+      <div class="page-content">
+        <span class="sub-title-tag spidey-tag" id="envelope-hint-tag">KLIK SEGEL LOGO SPIDER UNTUK MEMBUKA SURAT
+          🕷️</span>
+
+        <!-- Envelope Container -->
+        <div class="envelope-wrapper spidey-envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope-box spidey-envelope-box">
+
+            <!-- Slide-up Letter Card inside -->
+            <div class="letter-card-slide spidey-letter-paper" id="letter-paper">
+              <div class="letter-header">
+                <span class="badge-text spidey-badge-text">BOYFRIEND DAY MESSAGE 🕷️</span>
+              </div>
+              <h2 class="card-title spidey-card-title">Buat mantan superhero-ku...</h2>
+              <div class="card-body">
+                <p>Meskipun cerita kita sekarang sudah sampai di bab yang berbeda,</p>
+                <p>dan jalan yang kita tempuh sekarang sudah tak lagi sama...</p>
+                <p>Di momen Boyfriend Day ini, aku cuma ingin menyampaikan rasa terima kasih.</p>
+                <p>Terima kasih pernah hadir dan memberi warna indah di hariku,</p>
+                <p>terima kasih atas semua kebaikan, tawa, dan kenangan manis yang pernah ada.</p>
+                <p class="highlight-quote spidey-quote">
+                  "Kita mungkin tak lagi bersama, tapi kamu selalu punya tempat yang baik di ingatanku."<br>
+                  Semoga kamu selalu bahagia & sehat ya! <span class="heart-pulse-inline">🕷️❤️</span>
+                </p>
+              </div>
+
+              <!-- Spidey Polaroid Frame inside Letter -->
+              <div class="letter-polaroid photo-trigger spidey-letter-photo" data-img="public/photos/3.jpg"
+                data-caption="Thank You For Memories 🕷️⚡">
+                <div class="tape-sticker mini-tape spidey-tape"></div>
+                <div class="polaroid-photo-box">
+                  <img src="public/photos/3.jpg" alt="Favorite Person">
+                </div>
+                <span class="polaroid-handwriting spidey-handwriting">Sweet Memory ⚡</span>
+              </div>
+
+              <!-- Button inside letter flow -->
+              <div class="letter-btn-wrapper">
+                <button id="btn-page2" class="btn-primary spidey-btn">
+                  <span>Hal Yang Pernah Spesial ⚡</span> <span class="btn-arrow">→</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Envelope Back Base -->
+            <div class="envelope-back-panel spidey-envelope-back"></div>
+
+            <!-- Pocket Flaps -->
+            <svg class="envelope-flaps-svg" viewBox="0 0 360 220" preserveAspectRatio="none">
+              <polygon points="0,0 180,115 0,220" fill="#161b26" stroke="#ff1e27" stroke-width="1.5" />
+              <polygon points="360,0 180,115 360,220" fill="#161b26" stroke="#ff1e27" stroke-width="1.5" />
+              <polygon points="0,220 180,95 360,220" fill="#0d111a" stroke="#0084ff" stroke-width="1.5" />
+            </svg>
+
+            <!-- Top Opening Flap -->
+            <div class="envelope-top-flap-wrapper" id="envelope-flap">
+              <svg viewBox="0 0 360 130" preserveAspectRatio="none" class="top-flap-svg">
+                <polygon points="0,0 180,125 360,0" fill="#e62429" stroke="#0084ff" stroke-width="2" />
+              </svg>
+            </div>
+
+            <!-- Spidey Wax Seal Trigger -->
+            <div class="wax-seal-badge spidey-seal" id="wax-seal" title="Klik segel Spider untuk membuka surat">
+              <div class="wax-seal-inner spidey-seal-inner">
+                <span class="seal-icon">🕷️</span>
+                <span class="seal-text">OPEN</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 3: What Made You Special & 3D Flip Cards 🕷️⚡ -->
+    <section id="page-3" class="page">
+      <!-- Floating Decorative Badge -->
+      <div class="cute-sticker love-pill spidey-pill" title="Good Memories 💥">
+        <span class="sticker-emoji">💥</span>
+        <span class="sticker-tag">MEMORIES</span>
+      </div>
+
+      <div class="page-content">
+        <!-- 3D Spinning Spider Emblem Core 🕷️ -->
+        <div class="flower-3d-wrapper spidey-emblem-wrapper" title="Klik Spider Emblem 🕸️">
+          <div class="flower-3d-center spidey-emblem-center">
+            <div class="spidey-animated-emblem">
+              <div class="spidey-spider-icon">🕷️</div>
+            </div>
+          </div>
+        </div>
+
+        <span class="sub-title-tag spidey-tag">REMEMBRANCE OF GOOD TIMES</span>
+        <h2 class="page-title spidey-title">Hal Yang Pernah Bikin Spesial <span class="hand-inline">🕷️⚡</span></h2>
+
+        <!-- 3D Flip Cards Grid -->
+        <div class="cards-grid spidey-cards-grid">
+
+          <!-- Flip Card 1 -->
+          <div class="flip-card spidey-flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front spidey-card-front">
+                <div class="flip-icon">🕷️</div>
+                <h3>Your Smile</h3>
+                <span class="flip-hint">Hover / Touch untuk buka ↻</span>
+              </div>
+              <div class="flip-card-back photo-trigger spidey-card-back" data-img="public/photos/smile.jpg"
+                data-caption="Your Smile 😊">
+                <img src="public/photos/smile.jpg" alt="Your Smile" class="flip-bg-img">
+                <div class="flip-overlay spidey-overlay">
+                  <h4>🕷️ Your Smile</h4>
+                  <p>“Dulu senyummu selalu punya cara ajaib bikin hariku terasa tenang.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flip Card 2 -->
+          <div class="flip-card spidey-flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front spidey-card-front">
+                <div class="flip-icon">⚡</div>
+                <h3>Your Kindness</h3>
+                <span class="flip-hint">Hover / Touch untuk buka ↻</span>
+              </div>
+              <div class="flip-card-back photo-trigger spidey-card-back" data-img="public/photos/4.jpg"
+                data-caption="Your Kindness ⚡">
+                <img src="public/photos/4.jpg" alt="Your Kindness" class="flip-bg-img">
+                <div class="flip-overlay spidey-overlay">
+                  <h4>⚡ Your Kindness</h4>
+                  <p>“Kebaikan dan kepedulianmu dulu selalu jadi hal yang sangat aku hargai.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Flip Card 3 -->
+          <div class="flip-card spidey-flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front spidey-card-front">
+                <div class="flip-icon">🕸️</div>
+                <h3>Your Warmth</h3>
+                <span class="flip-hint">Hover / Touch untuk buka ↻</span>
+              </div>
+              <div class="flip-card-back photo-trigger spidey-card-back" data-img="public/photos/5.jpg"
+                data-caption="Your Warmth 🕸️">
+                <img src="public/photos/5.jpg" alt="Your Warmth" class="flip-bg-img">
+                <div class="flip-overlay spidey-overlay">
+                  <h4>🕸️ Your Warmth</h4>
+                  <p>“Terima kasih sudah pernah memberi kehangatan yang sangat berarti.”</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Interactive Web Shooter Button -->
+        <div class="surprise-section">
+          <button id="btn-surprise" class="btn-interactive spidey-interactive-btn">
+            <span class="sparkle-gold">🕸️</span> Kirim Doa Baik <span class="sparkle-gold">🕷️</span>
+          </button>
+
+          <div id="surprise-toast" class="surprise-toast spidey-toast hidden">
+            <span class="toast-text">Terima kasih atas semua kenangan indahnya 🕷️🕸️</span>
+          </div>
+        </div>
+
+        <button id="btn-page3" class="btn-primary spidey-btn">
+          <span>Pesan Terakhir 🕷️</span> <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 4: Respectful Warm Wishes Finale 🕷️❤️ -->
+    <section id="page-4" class="page">
+      <!-- Floating Decorative Emblem -->
+      <div class="cute-sticker sakura-badge spidey-badge" title="Warm Wishes 🕷️">
+        <span class="sticker-emoji">🕷️</span>
+        <span class="sticker-tag">ALWAYS</span>
+      </div>
+
+      <div class="page-content center-focus">
+
+        <!-- Delay Step 1: Initial Message -->
+        <div id="p4-intro" class="p4-intro-text spidey-intro-text">
+          <span>Satu ucapan tulus yang terakhir... 🕷️</span>
+        </div>
+
+        <!-- Delay Step 2: Final Message Container -->
+        <div id="p4-main" class="p4-main-content hidden">
+
+          <!-- 3D Flying Spider Emblem Vector -->
+          <div class="butterfly-3d-emblem spidey-finale-emblem">
+            <svg class="butterfly-svg spidey-logo-svg" viewBox="0 0 160 160" width="130" height="130">
+              <g class="spidey-svg-spider">
+                <!-- Spider Legs Left -->
+                <path
+                  d="M 80 70 C 60 40 30 30 15 50 M 80 75 C 55 60 25 60 10 85 M 80 85 C 55 90 25 105 15 130 M 80 90 C 60 105 40 125 30 145"
+                  stroke="#ff1e27" stroke-width="4" stroke-linecap="round" fill="none" />
+                <!-- Spider Legs Right -->
+                <path
+                  d="M 80 70 C 100 40 130 30 145 50 M 80 75 C 105 60 135 60 150 85 M 80 85 C 105 90 135 105 145 130 M 80 90 C 100 105 120 125 130 145"
+                  stroke="#ff1e27" stroke-width="4" stroke-linecap="round" fill="none" />
+                <!-- Body -->
+                <ellipse cx="80" cy="72" rx="10" ry="14" fill="#ff1e27" stroke="#0084ff" stroke-width="2" />
+                <ellipse cx="80" cy="94" rx="16" ry="22" fill="#ff1e27" stroke="#0084ff" stroke-width="2.5" />
+                <circle cx="80" cy="70" r="4" fill="#ffffff" />
+              </g>
+            </svg>
+          </div>
+
+          <span class="sub-title-tag spidey-tag">HAPPY BOYFRIEND DAY</span>
+          <h1 class="final-title spidey-final-title">Terima Kasih Ya. <span class="heart-pulse-inline">🕷️❤️</span></h1>
+          <p class="final-subtext spidey-final-subtext">Meskipun jalan kita berbeda, aku selalu mendoakan yang terbaik
+            untuk langkahmu.</p>
+
+          <!-- Romantic Spidey Photo Collage Ring -->
+          <div class="finale-collage spidey-collage">
+            <!-- Left Polaroid -->
+            <div class="collage-item c1 photo-trigger spidey-collage-item" data-img="public/photos/4.jpg"
+              data-caption="Good Memories 🕷️💕">
+              <div class="tape-sticker top-left-tape spidey-tape"></div>
+              <div class="photo-box">
+                <img src="public/photos/4.jpg" alt="Sweet Moments">
+              </div>
+              <span class="collage-label spidey-label">Memories 💕</span>
+            </div>
+
+            <!-- Center Hero Polaroid -->
+            <div class="collage-item c2 main-hero-photo photo-trigger spidey-collage-item"
+              data-img="public/photos/profil.jpg" data-caption="Thank You 🕷️❤️">
+              <div class="spidey-clip">🕷️</div>
+              <div class="photo-box">
+                <img src="public/photos/profil.jpg" alt="Special Day">
+              </div>
+              <span class="collage-label spidey-label">Thank You ❤️</span>
+            </div>
+
+            <!-- Right Polaroid -->
+            <div class="collage-item c3 photo-trigger spidey-collage-item" data-img="public/photos/3.jpg"
+              data-caption="Best Wishes Always 🕸️✨">
+              <div class="tape-sticker top-right-tape spidey-tape"></div>
+              <div class="photo-box">
+                <img src="public/photos/3.jpg" alt="Always Together">
+              </div>
+              <span class="collage-label spidey-label">Best Wishes 🕸️</span>
+            </div>
+          </div>
+
+          <div class="footer-tag spidey-footer">
+            <p>Thank you for being part of my story 🕷️❤️</p>
+          </div>
+
+          <button id="btn-restart" class="btn-subtle spidey-btn-subtle" title="Swing lagi dari awal">
+            <span>↺ Ulangi cerita</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
