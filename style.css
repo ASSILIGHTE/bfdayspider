@@ -986,6 +986,17 @@ body.spidey-warm-bg {
   align-items: center;
   justify-content: center;
   width: 100%;
+  margin: auto;
+}
+
+.p4-main-content {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .spidey-intro-text {
@@ -995,6 +1006,7 @@ body.spidey-warm-bg {
   color: var(--color-spidey-gold);
   text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
   transition: opacity 0.5s ease;
+  margin: auto;
 }
 
 .spidey-intro-text.fade-out {
@@ -1422,61 +1434,43 @@ body.spidey-warm-bg {
     margin-bottom: 1rem;
   }
 
-  /* Page 4 Mobile Finale - Pushed Down & Centered */
-  #p4-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: auto;
-    padding-top: 2.2rem;
-  }
-
-  .spidey-intro-text {
-    font-size: 1.4rem;
-    margin: auto;
-  }
-
+  /* Page 4 Mobile Finale */
   .spidey-finale-emblem {
-    width: 95px;
-    height: 95px;
-    margin-bottom: 0.5rem;
+    width: 110px;
+    height: 110px;
+    margin-bottom: 0.6rem;
   }
 
   .spidey-final-title {
-    font-size: 1.85rem;
+    font-size: 1.95rem;
     margin-bottom: 0.25rem;
-    line-height: 1.25;
   }
 
   .spidey-final-subtext {
-    font-size: 0.85rem;
-    max-width: 300px;
-    margin-bottom: 1.1rem;
-    line-height: 1.45;
+    font-size: 0.88rem;
+    margin-bottom: 1.2rem;
   }
 
   .spidey-collage {
     gap: 0.4rem;
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.2rem;
   }
 
   .spidey-collage .c1, .spidey-collage .c3 {
-    width: 78px;
+    width: 80px;
   }
 
   .spidey-collage .c2 {
-    width: 102px;
+    width: 105px;
   }
 
   .spidey-label {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
   }
 
   .spidey-footer p {
-    font-size: 0.76rem;
-    margin-bottom: 0.9rem;
+    font-size: 0.78rem;
+    margin-bottom: 1rem;
   }
 
   .spidey-btn-subtle {

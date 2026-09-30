@@ -568,12 +568,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function triggerPage4Sequence() {
     p4Intro.classList.remove('fade-out');
+    p4Intro.classList.remove('hidden');
     p4Main.classList.add('hidden');
 
     p4Timeout = setTimeout(() => {
       p4Intro.classList.add('fade-out');
       
       setTimeout(() => {
+        p4Intro.classList.add('hidden');
         p4Main.classList.remove('hidden');
         document.body.classList.add('spidey-warm-bg');
         spawn3DWebShooterBurst(window.innerWidth / 2, window.innerHeight / 2, 25);
