@@ -78,8 +78,8 @@ body.spidey-warm-bg {
 /* 🕷️ Interactive Swinging Spider-Man Character Mascot */
 .spidey-swinging-mascot {
   position: fixed;
-  top: 0;
-  left: 4.2rem;
+  top: 3.8rem;
+  left: 0.85rem;
   z-index: 95;
   cursor: pointer;
   transform-origin: top center;
@@ -110,7 +110,7 @@ body.spidey-warm-bg {
 .spidey-speech-bubble {
   position: absolute;
   top: 105px;
-  left: -15px;
+  left: 10px;
   background: var(--color-dark-card);
   border: 1.5px solid var(--color-spidey-gold);
   color: var(--color-spidey-gold);
@@ -766,7 +766,7 @@ body.spidey-warm-bg {
 
 .spidey-envelope-wrapper.open .spidey-letter-paper {
   opacity: 1;
-  transform: translateY(-50px) scale(1);
+  transform: translateY(-20px) scale(1);
   z-index: 15;
   pointer-events: auto;
 }
@@ -1237,9 +1237,7 @@ body.spidey-warm-bg {
   }
 
   .spidey-swinging-mascot {
-    left: 3.2rem;
-    top: -4px;
-    transform: scale(0.62);
+    display: none !important;
   }
 
   .spidey-speech-bubble {
